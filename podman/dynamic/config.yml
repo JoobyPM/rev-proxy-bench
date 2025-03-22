@@ -1,0 +1,19 @@
+tls:
+  certificates:
+    - certFile: "/certs/rev-proxy.test.lab.crt"
+      keyFile: "/certs/rev-proxy.test.lab.key"
+
+http:
+  routers:
+    nginx-router:
+      rule: "Host(`rev-proxy.test.lab`)"
+      entryPoints:
+        - websecure
+      service: nginx-service
+      tls: {}         # Tells Traefik to use TLS for this router
+
+  services:
+    nginx-service:
+      loadBalancer:
+        servers:
+          - url: "http://nginx:80"

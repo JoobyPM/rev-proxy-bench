@@ -1,0 +1,28 @@
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+
+  [entryPoints.websecure]
+    address = ":443"
+
+[providers.file]
+  # Points to your dynamic config for routing, TLS cert references, etc.
+  directory = "/etc/traefik/dynamic"
+  watch = true
+
+# Optional: minimal internal logs at ERROR level
+[log]
+  level = "ERROR"
+
+# Comment out or remove the [accessLog] section to disable access logs entirely
+# [accessLog]
+#   # No configuration = no logs
+
+[serversTransport]
+  # Raise max connections/timeouts for high concurrency
+  maxIdleConnsPerHost = 8192
+
+  [serversTransport.forwardingTimeouts]
+    dialTimeout = "5s"
+    responseHeaderTimeout = "5s"
+    # idleConnTimeout can remain at default (or set to "1m", etc.) if you like

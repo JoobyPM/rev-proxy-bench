@@ -108,13 +108,21 @@ K6_WEB_DASHBOARD=true \
 k6 run --insecure-skip-tls-verify ramp-test.js
 ```
 
-## 3. Test Results
+## 3. Test Results (in Docker)
 
 | Reverse Proxy | Rate (MB/s) | p95 (ms) | Max RPS  | Max CPU (%) | Max Memory (MB) |
 |---------------|-------------|----------|----------|-------------|-----------------|
 | **Traefik**   | 242         | 155      | 1280     | 121         | 65.9            |
 | **HAProxy**   | 255         | 149      | 1320     | 71.2        | 19.2            |
 | **Nginx**     | 325         | 119      | 1660     | 65.3        | 24.5            |
+
+
+## 4. Test Results (in Podman)
+> **Note:** After 30 sec of load, the poadman VM stoped responding, and test had to be terminated.
+
+| Reverse Proxy | Rate (MB/s) | p95 (ms) | Max RPS  | Max CPU (%) | Max Memory (MB) |
+|---------------|-------------|----------|----------|-------------|-----------------|
+| **Traefik**   | 351         | 29       | 1760     | 70.78       | 38.5            |
 
 > Each proxy is using port **443** with your self-signed certificate. Adjust your `/etc/hosts` or DNS as needed, then benchmark or load-test however you like.
 

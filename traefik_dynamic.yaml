@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /etc/traefik/certs/rev-proxy.test.lab.crt
+      keyFile: /etc/traefik/certs/rev-proxy.test.lab.key

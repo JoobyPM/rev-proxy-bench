@@ -1,5 +1,5 @@
 
-A minimal Docker Compose setup to compare **HAProxy**, **Nginx**, and **Traefik** as reverse proxies over HTTPS, each fronting the same simple test service (`http-echo`).
+A minimal Docker Compose setup to compare **HAProxy**, **Nginx**, and **Traefik** as reverse proxies over HTTPS, each fronting the same simple static server `nginx`.
 
 ## 1. Certificate & Key Setup
 
@@ -61,7 +61,7 @@ Put them all in a local `certs/` folder (or whichever folder you prefer). Exampl
 
 Below is an **SSL-enabled** Docker Compose setup that:
 
-1. Uses the same **basic test-service** as before (HashiCorp’s `http-echo`).
+1. Uses the same **basic static-server** as before `nginx`.
 2. Adds SSL/TLS (with a self-signed certificate) for each reverse proxy:
    - **HAProxy**
    - **Nginx**
@@ -110,11 +110,11 @@ k6 run --insecure-skip-tls-verify ramp-test.js
 
 ## 3. Test Results
 
-| Reverse Proxy | Max (ms) | p95 (ms) | Max RPS (before p95>5ms)  | Max RPS  |
-|---------------|----------|----------|---------------------------|----------|
-| **Traefik**   | 88.47    | 24.44    | 15,770                    | 17,180   |
-| **HAProxy**   | 109      | 6        | 34,030                    | 36,080   |
-| **Nginx**     | 86.52    | 5.63     | 35,160                    | 39,570   |
+| Reverse Proxy | Rate (MB/s) | p95 (ms) | Max RPS  | Max CPU (%) | Max Memory (MB) |
+|---------------|-------------|----------|----------|-------------|-----------------|
+| **Traefik**   | 242         | 155      | 1280     | 121         | 65.9            |
+| **HAProxy**   | 255         | 149      | 1320     | 71.2        | 19.2            |
+| **Nginx**     | 325         | 119      | 1660     | 65.3        | 24.5            |
 
 > Each proxy is using port **443** with your self-signed certificate. Adjust your `/etc/hosts` or DNS as needed, then benchmark or load-test however you like.
 

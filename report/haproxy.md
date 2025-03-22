@@ -1,29 +1,30 @@
 ## K6 summary - HAProxy
 ```plaintext
-     checks.........................: 100.00% 15728708 out of 15728708
-     data_received..................: 1.3 GB  4.5 MB/s
-     data_sent......................: 285 MB  949 kB/s
-     http_req_blocked...............: avg=239ns   min=0s       med=0s     max=33.81ms  p(90)=1µs    p(95)=1µs   
-     http_req_connecting............: avg=6ns     min=0s       med=0s     max=1.24ms   p(90)=0s     p(95)=0s    
-   ✓ http_req_duration..............: avg=2.77ms  min=283µs    med=2.28ms max=109.87ms p(90)=5.06ms p(95)=6.32ms
-       { expected_response:true }...: avg=2.77ms  min=283µs    med=2.28ms max=109.87ms p(90)=5.06ms p(95)=6.32ms
-     http_req_failed................: 0.00%   0 out of 7864354
-     http_req_receiving.............: avg=32.81µs min=2µs      med=8µs    max=28.32ms  p(90)=88µs   p(95)=147µs 
-     http_req_sending...............: avg=8.48µs  min=3µs      med=7µs    max=9.92ms   p(90)=14µs   p(95)=17µs  
-     http_req_tls_handshaking.......: avg=123ns   min=0s       med=0s     max=33.53ms  p(90)=0s     p(95)=0s    
-     http_req_waiting...............: avg=2.73ms  min=0s       med=2.24ms max=109.79ms p(90)=4.99ms p(95)=6.25ms
-     http_reqs......................: 7864354 26213.796299/s
-     iteration_duration.............: avg=2.8ms   min=299.66µs med=2.31ms max=109.92ms p(90)=5.09ms p(95)=6.36ms
-     iterations.....................: 7864354 26213.796299/s
-     vus............................: 199     min=0                    max=199
-     vus_max........................: 200     min=200                  max=200
+     checks.........................: 100.00% 230191 out of 230191
+     data_received..................: 46 GB   255 MB/s
+     data_sent......................: 87 MB   485 kB/s
+     http_req_blocked...............: avg=21.99µs min=0s       med=0s      max=71.33ms  p(90)=1µs      p(95)=1µs     
+     http_req_connecting............: avg=168ns   min=0s       med=0s      max=362µs    p(90)=0s       p(95)=0s      
+   ✓ http_req_duration..............: avg=64.76ms min=890µs    med=57.29ms max=279.6ms  p(90)=132.3ms  p(95)=149.06ms
+       { expected_response:true }...: avg=64.76ms min=890µs    med=57.29ms max=279.6ms  p(90)=132.3ms  p(95)=149.06ms
+     http_req_failed................: 0.00%   0 out of 230191
+     http_req_receiving.............: avg=54.1ms  min=291µs    med=47.15ms max=257.57ms p(90)=113.81ms p(95)=128.83ms
+     http_req_sending...............: avg=9.12µs  min=3µs      med=8µs     max=1.05ms   p(90)=13µs     p(95)=16µs    
+     http_req_tls_handshaking.......: avg=21.63µs min=0s       med=0s      max=71.1ms   p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=10.64ms min=333µs    med=9.68ms  max=85.48ms  p(90)=19.5ms   p(95)=21.59ms 
+     http_reqs......................: 230191  1278.126326/s
+     iteration_duration.............: avg=64.81ms min=913.41µs med=57.33ms max=279.62ms p(90)=132.37ms p(95)=149.15ms
+     iterations.....................: 230191  1278.126326/s
+     vus............................: 199     min=0                max=199
+     vus_max........................: 200     min=200              max=200
 
 
-running (5m00.0s), 000/200 VUs, 7864354 complete and 0 interrupted iterations
-gradual_load_test ✓ [======================================] 000/200 VUs  5m0s
+running (3m00.1s), 000/200 VUs, 230191 complete and 0 interrupted iterations
+gradual_load_test ✓ [======================================] 000/200 VUs  3m0s
 ```
 
-![k6-traefik.png](./assets/k6-haproxy.png)
+![k6-haproxy-1.png](./assets/k6-haproxy-1.png)
+![k6-haproxy-2.png](./assets/k6-haproxy-2.png)
 
 ### Links
 - [README.md](../README.md)
